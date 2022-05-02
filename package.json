@@ -1,0 +1,74 @@
+{
+  "name": "deepkit-template",
+  "version": "0.0.0",
+  "description": "a deepkit quick start template.",
+  "main": "index.js",
+  "engines": {
+    "node": ">14",
+    "pnpm": ">=6"
+  },
+  "publishConfig": {
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  },
+  "scripts": {
+    "prepare": "npm run postinstall",
+    "postinstall": "deepkit-type-install",
+    "start": "ts-node src/main.ts",
+    "dev": "nodemon src/main.ts server:start",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "<You>",
+  "license": "ISC",
+  "dependencies": {
+    "@deepkit/app": "^1.0.1-alpha.71",
+    "@deepkit/broker": "^1.0.1-alpha.71",
+    "@deepkit/bson": "^1.0.1-alpha.71",
+    "@deepkit/core": "^1.0.1-alpha.65",
+    "@deepkit/core-rxjs": "^1.0.1-alpha.65",
+    "@deepkit/crypto": "^1.0.1-alpha.65",
+    "@deepkit/event": "^1.0.1-alpha.71",
+    "@deepkit/framework": "^1.0.1-alpha.71",
+    "@deepkit/http": "^1.0.1-alpha.71",
+    "@deepkit/injector": "^1.0.1-alpha.71",
+    "@deepkit/logger": "^1.0.1-alpha.65",
+    "@deepkit/orm": "^1.0.1-alpha.71",
+    "@deepkit/rpc": "^1.0.1-alpha.71",
+    "@deepkit/rpc-tcp": "^1.0.1-alpha.71",
+    "@deepkit/sql": "^1.0.1-alpha.71",
+    "@deepkit/sqlite": "^1.0.1-alpha.71",
+    "@deepkit/stopwatch": "^1.0.1-alpha.71",
+    "@deepkit/template": "^1.0.1-alpha.71",
+    "@deepkit/type": "^1.0.1-alpha.71",
+    "@deepkit/type-compiler": "^1.0.1-alpha.71",
+    "@deepkit/workflow": "^1.0.1-alpha.71",
+    "rxjs": "~6.6.0",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2",
+    "untildify": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "@types/node": "^17.0.23",
+    "jest": "^28.0.3",
+    "nodemon": "^2.0.16",
+    "ts-jest": "^27.1.4"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "testEnvironment": "node",
+    "resolver": "@deepkit/framework/resolve",
+    "testMatch": [
+      "**/*.spec.ts"
+    ]
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "test/*",
+      "docs/*"
+    ]
+  }
+}
