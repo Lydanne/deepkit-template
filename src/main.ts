@@ -13,7 +13,7 @@ new App({
     new FrameworkModule({
       debug: true,
       migrateOnStartup: true,
-      port: 3001,
+      port: 3000,
     }),
     new CmdModule(),
     new UserModule(),

@@ -19,6 +19,7 @@ a deepkit quick start template, help you quickly build a development environment
 ## Bootstrap
 
 ```bash
+git clone https://github.com/WumaCoder/deepkit-template.git
 pnpm i # or npm i
 pnpm dev # npm run dev
 ```
