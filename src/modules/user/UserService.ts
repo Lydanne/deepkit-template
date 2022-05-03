@@ -4,6 +4,7 @@ import { make } from "../../utils/make";
 import { User } from "../../orm/entities/UserEntity";
 import { Role } from "../../orm/entities/RoleEntity";
 import { RoleService } from "../role/RoleService";
+import { UpdateUserDto } from "./dto/UpdateUserDto";
 
 export class UserService {
   constructor(
@@ -22,7 +23,19 @@ export class UserService {
     return user;
   }
 
-  getUser(id: string) {
-    return {};
+  findOne(id: number) {
+    return this.database.query(User).filter({ id }).findOne();
+  }
+
+  findAll() {
+    return this.database.query(User).find();
+  }
+
+  update(id: number, dto: UpdateUserDto) {
+    return this.database.query(User).filter({ id }).patchOne(dto);
+  }
+
+  remove(id: number) {
+    return this.database.query(User).filter({ id }).deleteOne();
   }
 }
