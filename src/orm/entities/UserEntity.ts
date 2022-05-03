@@ -1,13 +1,7 @@
-import {
-  BackReference,
-  entity,
-  Index,
-  MinLength,
-  Reference,
-  Unique,
-} from "@deepkit/type";
+import { BackReference, entity, MinLength, Unique } from "@deepkit/type";
 import { Common } from "./CommonEntity";
 import { Role } from "./RoleEntity";
+import { UserJoinRole } from "./UserJoinRoleEntity";
 
 @entity.name("user")
 export class User extends Common {
@@ -16,7 +10,7 @@ export class User extends Common {
 
   name!: string & Unique & MinLength<1>;
 
-  roles: (Role & Reference)[] = [];
+  roles?: Role[] & BackReference<{ via: typeof UserJoinRole }>;
 
   constructor() {
     super();

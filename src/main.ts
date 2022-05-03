@@ -6,6 +6,7 @@ import { UserModule } from "./modules/user/UserModule";
 import { ResponseEvent } from "./events/ResponseEvent";
 import { RoleModule } from "./modules/role/RoleModule";
 import { CmdModule } from "./cmd/CmdModule";
+import { RbacModule } from "@rbac";
 
 new App({
   config: Config,
@@ -15,6 +16,7 @@ new App({
       migrateOnStartup: true,
       port: 3000,
     }),
+    new RbacModule(),
     new CmdModule(),
     new UserModule(),
     new RoleModule(),

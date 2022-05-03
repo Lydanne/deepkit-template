@@ -5,37 +5,36 @@ import { User } from "../../orm/entities/UserEntity";
 import { Role } from "../../orm/entities/RoleEntity";
 import { RoleService } from "../role/RoleService";
 import { UpdateUserDto } from "./dto/UpdateUserDto";
+import { UserJoinRole } from "@app/orm/entities/UserJoinRoleEntity";
+import { serialize } from "@deepkit/type";
 
 export class UserService {
-  constructor(
-    protected database: ORMDatabase,
-    private roleService: RoleService
-  ) {}
+  constructor(protected orm: ORMDatabase, private roleService: RoleService) {}
 
   async create(dto: CreateUserDto, role?: Role) {
     const user = make(User, dto);
     if (!role) {
       role = await this.roleService.findOneByName("user");
-
-      user.roles.push(role);
     }
-    await this.database.persist(user);
+    const userRole = new UserJoinRole(user, role);
+    await this.orm.persist(user, userRole);
     return user;
   }
 
   findOne(id: number) {
-    return this.database.query(User).filter({ id }).findOne();
+    return this.orm.query(User).innerJoinWith("roles").filter({ id }).findOne();
   }
 
-  findAll() {
-    return this.database.query(User).find();
+  async findAll() {
+    const res = await this.orm.query(User).joinWith("roles").find();
+    return res;
   }
 
   update(id: number, dto: UpdateUserDto) {
-    return this.database.query(User).filter({ id }).patchOne(dto);
+    return this.orm.query(User).filter({ id }).patchOne(dto);
   }
 
   remove(id: number) {
-    return this.database.query(User).filter({ id }).deleteOne();
+    return this.orm.query(User).filter({ id }).deleteOne();
   }
 }

@@ -4,6 +4,7 @@ import { Config } from "../Config";
 import { ORMDatabase } from "../orm/ORMDatabase";
 import { make } from "../utils/make";
 import { Role } from "../orm/entities/RoleEntity";
+import { UserJoinRole } from "../orm/entities/UserJoinRoleEntity";
 
 @cli.controller("init")
 export class InitCommand implements Command {
@@ -23,9 +24,9 @@ export class InitCommand implements Command {
       }
     }
     if (adminRole) {
-      for (const iterator of this.config.initAdminUsers) {
-        iterator.roles.push(adminRole);
-        await this.orm.persist(iterator);
+      for (const user of this.config.initAdminUsers) {
+        const userRole = new UserJoinRole(user, adminRole);
+        await this.orm.persist(user, userRole);
       }
     }
     process.exit(0);

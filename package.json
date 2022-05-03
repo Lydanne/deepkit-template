@@ -15,7 +15,7 @@
     "prepare": "npm run postinstall",
     "postinstall": "deepkit-type-install",
     "start": "ts-node src/main.ts",
-    "dev": "nodemon src/main.ts server:start",
+    "dev": "NODE_OPTIONS='--trace-deprecation --abort-on-uncaught-exception' nodemon src/main.ts server:start",
     "build": "tsc"
   },
   "keywords": [],
@@ -49,11 +49,13 @@
     "untildify": "^4.0.0"
   },
   "devDependencies": {
+    "@tsconfig/node16": "^1.0.2",
     "@types/jest": "^27.4.1",
     "@types/node": "^17.0.23",
     "jest": "^28.0.3",
     "nodemon": "^2.0.16",
-    "ts-jest": "^27.1.4"
+    "ts-jest": "^27.1.4",
+    "tsconfig-paths": "^4.0.0"
   },
   "jest": {
     "transform": {

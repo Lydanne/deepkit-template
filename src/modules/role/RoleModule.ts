@@ -1,5 +1,5 @@
 import { createModule } from "@deepkit/app";
-import { Config } from "../../Config";
+import { Config } from "@app/Config";
 import { RoleController } from "./RoleController";
 import { RoleService } from "./RoleService";
 

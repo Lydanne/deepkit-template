@@ -2,26 +2,35 @@ import { http, HttpBody } from "@deepkit/http";
 import { CreateUserDto } from "./dto/CreateUserDto";
 import { UserService } from "./UserService";
 import { UpdateUserDto } from "./dto/UpdateUserDto";
+import { Resource } from "@rbac";
+import { RbacService } from "@rbac";
 
-// @Resource("user")
+@Resource.name("user")
 @http.controller("user")
 export class UserController {
-  constructor(protected userService: UserService) {}
+  constructor(
+    protected userService: UserService,
+    private rbacService: RbacService
+  ) {}
 
-  // @Action("create")
+  @Resource.action("create")
   @http.POST()
   create(dto: HttpBody<CreateUserDto>) {
     return this.userService.create(dto);
   }
 
-  @http.GET(":id")
+  @Resource.action("get")
+  @http.GET(":id").data("role", "user")
   get(id: string) {
+    console.log(this.rbacService.getAllActions());
+
     return this.userService.findOne(+id);
   }
 
   @http.GET()
-  gets() {
-    return this.userService.findAll();
+  async gets() {
+    const res = await this.userService.findAll();
+    return res;
   }
 
   @http.PATCH(":id")

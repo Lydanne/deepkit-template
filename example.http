@@ -1,12 +1,12 @@
 ###  Create User
-POST http://localhost:3001/user HTTP/1.1
+POST http://localhost:3000/user HTTP/1.1
 content-type: application/json
 
 {
-    "name": "sample112",
-    "username": "sample123132",
+    "name": "sample1122",
+    "username": "sample1231321",
     "password": "12345678"
 }
 
 ### Find Role
-GET http://localhost:3001/role HTTP/1.1
+GET http://localhost:3000/role HTTP/1.1
