@@ -26,7 +26,7 @@ export class ResponseEvent {
   @eventDispatcher.listen(httpWorkflow.onResponse)
   onResponse(event: typeof httpWorkflow.onResponse.event) {
     if (event.result instanceof JSONResponse) return;
-    event.result = serialize<typeof event.result>(event.result);
+    // event.result = serialize<typeof event.result>(event.result); // TODO: Just let go of this for now
   }
 
   @eventDispatcher.listen(httpWorkflow.onController)
