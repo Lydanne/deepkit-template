@@ -18,7 +18,8 @@
     "start:prod": "NODE_ENV=prod node dist/main.js",
     "dev": "NODE_OPTIONS='--trace-deprecation --abort-on-uncaught-exception' nodemon src/main.ts server:start",
     "build": "webpack",
-    "build:tsc": "tsc && resolve-tspaths --src=./"
+    "build:tsc": "tsc && resolve-tspaths --src=./",
+    "test": "jest"
   },
   "keywords": [],
   "author": "<You>",
@@ -58,7 +59,7 @@
     "@types/node": "^17.0.23",
     "alias-hq": "^5.4.0",
     "craco-alias": "^3.0.1",
-    "jest": "^28.0.3",
+    "jest": "^27",
     "nodemon": "^2.0.16",
     "resolve-tspaths": "^0.3.0",
     "swc-loader": "^0.2.0",
@@ -69,16 +70,6 @@
     "webpack": "^5.72.0",
     "webpack-chain": "^6.5.1",
     "webpack-cli": "^4.9.2"
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.(ts|tsx)$": "ts-jest"
-    },
-    "testEnvironment": "node",
-    "resolver": "@deepkit/framework/resolve",
-    "testMatch": [
-      "**/*.spec.ts"
-    ]
   },
   "nodemonConfig": {
     "ignore": [
