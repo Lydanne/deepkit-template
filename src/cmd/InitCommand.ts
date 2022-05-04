@@ -2,8 +2,6 @@ import { Logger } from "@deepkit/logger";
 import { cli, Command } from "@deepkit/app";
 import { Config } from "../Config";
 import { ORMDatabase } from "../orm/ORMDatabase";
-import { make } from "../utils/make";
-import { Role } from "../orm/entities/RoleEntity";
 import { UserJoinRole } from "../orm/entities/UserJoinRoleEntity";
 
 @cli.controller("init")

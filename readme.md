@@ -4,9 +4,9 @@ a deepkit quick start template, help you quickly build a development environment
 
 ## Feature
 
-- [ ] Automatic identification environment.(local,dev,prod,...)
+- [x] Automatic identification environment.(local,dev,prod,...)
 - [x] Support npm and pnpm.
-- [ ] Minimize permissions for integrating user and role (RBAC).
+- [x] Minimize permissions for integrating user and role (RBAC).
 - [x] Neat directory structure.
 - [x] Automatic reload.
 - [x] Jest unit test integration.
@@ -18,10 +18,18 @@ a deepkit quick start template, help you quickly build a development environment
 
 ## Bootstrap
 
+### start
+
 ```bash
 git clone https://github.com/WumaCoder/deepkit-template.git
 pnpm i # or npm i
 pnpm dev # npm run dev
+```
+
+### build
+
+```base
+pnpm build
 ```
 
 visit `http://localhost:3000`.

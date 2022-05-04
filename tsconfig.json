@@ -1,19 +1,24 @@
 {
-  "extends": "ts-node/node16/tsconfig.json",
   "compilerOptions": {
+    "baseUrl": "./",
     "rootDir": "./",
     "outDir": "./dist",
     "experimentalDecorators": true,
     "strict": true,
     "esModuleInterop": true,
+    "sourceMap": true,
     "target": "ES2020",
     "module": "CommonJS",
     "moduleResolution": "node",
     "noImplicitAny": true,
     "paths": {
       "@app/*": ["./src/*"],
+      "@boot": ["./libs/boot/src"],
+      "@boot/*": ["./libs/boot/src/*"],
       "@rbac": ["./libs/rbac/src"],
-      "@rbac/*": ["./libs/rbac/src/*"]
+      "@rbac/*": ["./libs/rbac/src/*"],
+      "@tools": ["./libs/tools/src"],
+      "@tools/*": ["./libs/tools/src/*"]
     }
   },
   "reflection": true,

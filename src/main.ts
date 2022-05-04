@@ -1,6 +1,7 @@
+import "@boot";
 import { App } from "@deepkit/app";
 import { FrameworkModule } from "@deepkit/framework";
-import { Config } from "./Config";
+import { config, Config } from "./Config";
 import { ORMModule } from "./orm/ORMModule";
 import { UserModule } from "./modules/user/UserModule";
 import { ResponseEvent } from "./events/ResponseEvent";
@@ -14,7 +15,7 @@ new App({
     new FrameworkModule({
       debug: true,
       migrateOnStartup: true,
-      port: 3000,
+      port: config().port,
     }),
     new RbacModule(),
     new CmdModule(),
