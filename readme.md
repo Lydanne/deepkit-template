@@ -10,6 +10,7 @@ a deepkit quick start template, help you quickly build a development environment
 - [x] Neat directory structure.
 - [x] Automatic reload.
 - [x] Jest unit test integration.
+- [x] Intelligent configuration.
 - [ ] E2E auto test.
 - [ ] Git commit verify.
 - [ ] Client apisdk generation.

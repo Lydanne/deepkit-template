@@ -1,6 +1,6 @@
 const typeCompiler = require("@deepkit/type-compiler");
-const path = require("path");
 const hq = require("alias-hq");
+const nodeExternals = require("webpack-node-externals");
 
 module.exports = {
   mode: "development",
@@ -26,7 +26,7 @@ module.exports = {
       },
     ],
   },
-  externals: [/^@deepkit\/.+/],
+  externals: [nodeExternals()],
   externalsType: "commonjs",
   resolve: {
     extensions: [".tsx", ".ts"],
